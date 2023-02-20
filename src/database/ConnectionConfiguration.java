@@ -5,9 +5,14 @@ import java.sql.DriverManager;
 
 public class ConnectionConfiguration {
 
+    private static Connection connection;
+
     public static Connection getConnection() {
-        Connection connection = null;
-        String url = "jdbc:mysql://localhost:3306/bibliotekonsdag?serverTimezone=CET&useSSL=false";
+        if (connection != null) {
+            return connection;
+        }
+
+        String url = "jdbc:mysql://localhost:3306/bibliotek?serverTimezone=CET&useSSL=false";
         String user = "root";
         String password = "123";
         try {
