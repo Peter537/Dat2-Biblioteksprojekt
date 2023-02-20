@@ -1,5 +1,6 @@
 import database.ConnectionConfiguration;
 import entities.Bruger;
+import mapper.BrugerMapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,21 +33,7 @@ public class Main {
         }
          */
 
-        List<Bruger> brugerList = new ArrayList<>();
-        try {
-            Connection connection = ConnectionConfiguration.getConnection();
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM bibliotek.bruger");
-            ResultSet result = statement.executeQuery();
-            while (result.next()) {
-                int id = result.getInt("idbruger");
-                String navn = result.getString("navn");
-                String adresse = result.getString("adresse");
-                int postnr = result.getInt("postnr");
-                brugerList.add(new Bruger(id, navn, adresse, postnr));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        List<Bruger> brugerList = BrugerMapper.getBrugerList();
 
         for (Bruger bruger : brugerList) {
             System.out.println(bruger);
