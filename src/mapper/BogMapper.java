@@ -41,7 +41,7 @@ public class BogMapper {
             ResultSet result = statement.executeQuery();
             while (result.next()) {
                 int id = result.getInt("idforfatter");
-                String name = result.getString("name");
+                String name = result.getString("navn");
                 forfatterList.add(new Forfatter(id, name));
             }
         } catch (Exception e) {
