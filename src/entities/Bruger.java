@@ -5,9 +5,9 @@ public class Bruger {
     private int id;
     private String navn;
     private String adresse;
-    private int postnr;
+    private Postnr postnr;
 
-    public Bruger(int id, String navn, String adresse, int postnr) {
+    public Bruger(int id, String navn, String adresse, Postnr postnr) {
         this.id = id;
         this.navn = navn;
         this.adresse = adresse;
@@ -38,11 +38,11 @@ public class Bruger {
         this.adresse = adresse;
     }
 
-    public int getPostnr() {
+    public Postnr getPostnr() {
         return postnr;
     }
 
-    public void setPostnr(int postnr) {
+    public void setPostnr(Postnr postnr) {
         this.postnr = postnr;
     }
 
