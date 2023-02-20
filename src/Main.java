@@ -1,34 +1,40 @@
+import entities.Bog;
 import entities.Bruger;
+import entities.Udlaan;
+import mapper.BogMapper;
 import mapper.BrugerMapper;
+import mapper.UdlaanMapper;
 
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        /*
-        String name = getString("Hvad hedder du?: ");
-        System.out.println("Hej " + name);
-        int age = getInt("Hvor gammel er du?: ");
-        System.out.println("Du er " + age + " år gammel");
-        */
-        /*
-        while (true) {
-            String valg = getString("Hvad vil du gøre?: ");
-            switch (valg) {
-                case "lån" -> System.out.println("Du ønsker at låne en bog");
-                case "stop" -> {
-                    System.out.println("Programmet stopper");
-                    return;
-                }
-            }
-        }
-         */
-
+        System.out.println();
+        System.out.println(" **********************************");
+        System.out.println("  Brugerliste");
+        System.out.println();
         List<Bruger> brugerList = BrugerMapper.getBrugerList();
-
         for (Bruger bruger : brugerList) {
             System.out.println(bruger);
+        }
+
+        System.out.println();
+        System.out.println(" **********************************");
+        System.out.println("  Bogliste");
+        System.out.println();
+        List<Bog> bogList = BogMapper.getBogList();
+        for (Bog bog : bogList) {
+            System.out.println(bog);
+        }
+
+        System.out.println();
+        System.out.println(" **********************************");
+        System.out.println("  Udlånliste");
+        System.out.println();
+        List<Udlaan> udlaanList = UdlaanMapper.getUdlaanList();
+        for (Udlaan udlaan : udlaanList) {
+            System.out.println(udlaan);
         }
     }
 }
