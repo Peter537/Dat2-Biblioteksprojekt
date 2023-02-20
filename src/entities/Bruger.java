@@ -47,6 +47,20 @@ public class Bruger {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Bruger bruger = (Bruger) o;
+        return this.id != bruger.id;
+    }
+
+    @Override
     public String toString() {
         return "Bruger{" +
                 "id=" + this.id +

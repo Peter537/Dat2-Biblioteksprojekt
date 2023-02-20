@@ -37,6 +37,20 @@ public class Bog {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Bog bog = (Bog) o;
+        return this.id == bog.id;
+    }
+
+    @Override
     public String toString() {
         return "Bog{" +
                 "id=" + this.id +

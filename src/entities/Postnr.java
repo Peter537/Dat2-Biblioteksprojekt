@@ -27,6 +27,20 @@ public class Postnr {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Postnr postnrOther = (Postnr) o;
+        return this.postnr != postnrOther.postnr;
+    }
+
+    @Override
     public String toString() {
         return "Postnr{" +
                 "postnr=" + this.postnr +
