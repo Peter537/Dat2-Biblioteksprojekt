@@ -12,8 +12,15 @@ import java.util.List;
 
 public class BogMapper {
 
+    private static List<Bog> bogList = new ArrayList<>();
+    private static List<Forfatter> forfatterList = new ArrayList<>();
+
     public static List<Bog> getBogList() {
-        List<Bog> bogList = new ArrayList<>();
+        if (!bogList.isEmpty()) {
+            return bogList;
+        }
+
+        List<Bog> tempBogList = new ArrayList<>();
         List<Forfatter> forfatterList = getForfatterList();
         try {
             Connection connection = ConnectionConfiguration.getConnection();
@@ -24,17 +31,22 @@ public class BogMapper {
                 String titel = result.getString("titel");
                 int forfatter = result.getInt("idforfatter");
                 Forfatter forfatterObj = forfatterList.stream().filter(f -> f.getId() == forfatter).findFirst().orElse(null);
-                bogList.add(new Bog(id, titel, forfatterObj));
+                tempBogList.add(new Bog(id, titel, forfatterObj));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        bogList = tempBogList;
         return bogList;
     }
 
     public static List<Forfatter> getForfatterList() {
-        List<Forfatter> forfatterList = new ArrayList<>();
+        if (!forfatterList.isEmpty()) {
+            return forfatterList;
+        }
+
+        List<Forfatter> tempForfatterList = new ArrayList<>();
         try {
             Connection connection = ConnectionConfiguration.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM bibliotek.forfatter");
@@ -42,12 +54,13 @@ public class BogMapper {
             while (result.next()) {
                 int id = result.getInt("idforfatter");
                 String name = result.getString("navn");
-                forfatterList.add(new Forfatter(id, name));
+                tempForfatterList.add(new Forfatter(id, name));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        forfatterList = tempForfatterList;
         return forfatterList;
     }
 }

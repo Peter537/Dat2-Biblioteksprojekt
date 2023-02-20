@@ -13,8 +13,14 @@ import java.util.List;
 
 public class UdlaanMapper {
 
+    private static List<Udlaan> udlaanList = new ArrayList<>();
+
     public static List<Udlaan> getUdlaanList() {
-        List<Udlaan> udlaanList = new ArrayList<>();
+        if (!udlaanList.isEmpty()) {
+            return udlaanList;
+        }
+
+        List<Udlaan> tempUdlaanList = new ArrayList<>();
         List<Bruger> brugerList = BrugerMapper.getBrugerList();
         List<Bog> bogList = BogMapper.getBogList();
         try {
@@ -27,12 +33,13 @@ public class UdlaanMapper {
                 int bog = result.getInt("idbog");
                 Bruger brugerObj = brugerList.stream().filter(b -> b.getId() == bruger).findFirst().orElse(null);
                 Bog bogObj = bogList.stream().filter(b -> b.getId() == bog).findFirst().orElse(null);
-                udlaanList.add(new Udlaan(id, brugerObj, bogObj));
+                tempUdlaanList.add(new Udlaan(id, brugerObj, bogObj));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        udlaanList = tempUdlaanList;
         return udlaanList;
     }
 }
