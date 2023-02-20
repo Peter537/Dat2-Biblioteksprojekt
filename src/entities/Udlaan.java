@@ -13,7 +13,7 @@ public class Udlaan {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -21,7 +21,7 @@ public class Udlaan {
     }
 
     public Bruger getBruger() {
-        return bruger;
+        return this.bruger;
     }
 
     public void setBruger(Bruger bruger) {
@@ -29,7 +29,7 @@ public class Udlaan {
     }
 
     public Bog getBog() {
-        return bog;
+        return this.bog;
     }
 
     public void setBog(Bog bog) {
@@ -39,9 +39,9 @@ public class Udlaan {
     @Override
     public String toString() {
         return "Udlaan{" +
-                "id=" + id +
-                ", bruger=" + bruger +
-                ", bog=" + bog +
+                "id=" + this.id +
+                ", bruger=" + this.bruger +
+                ", bog=" + this.bog +
                 '}';
     }
 }

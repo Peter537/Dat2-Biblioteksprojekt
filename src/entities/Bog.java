@@ -13,7 +13,7 @@ public class Bog {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -21,7 +21,7 @@ public class Bog {
     }
 
     public String getTitel() {
-        return titel;
+        return this.titel;
     }
 
     public void setTitel(String titel) {
@@ -29,7 +29,7 @@ public class Bog {
     }
 
     public Forfatter getForfatter() {
-        return forfatter;
+        return this.forfatter;
     }
 
     public void setForfatter(Forfatter forfatter) {
@@ -39,9 +39,9 @@ public class Bog {
     @Override
     public String toString() {
         return "Bog{" +
-                "id=" + id +
-                ", titel='" + titel + '\'' +
-                ", forfatter=" + forfatter +
+                "id=" + this.id +
+                ", titel='" + this.titel + '\'' +
+                ", forfatter=" + this.forfatter +
                 '}';
     }
 }

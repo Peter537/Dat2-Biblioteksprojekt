@@ -11,7 +11,7 @@ public class Postnr {
     }
 
     public int getPostnr() {
-        return postnr;
+        return this.postnr;
     }
 
     public void setPostnr(int postnr) {
@@ -19,7 +19,7 @@ public class Postnr {
     }
 
     public String getBynavn() {
-        return bynavn;
+        return this.bynavn;
     }
 
     public void setBynavn(String bynavn) {
@@ -29,8 +29,8 @@ public class Postnr {
     @Override
     public String toString() {
         return "Postnr{" +
-                "postnr=" + postnr +
-                ", bynavn='" + bynavn + '\'' +
+                "postnr=" + this.postnr +
+                ", bynavn='" + this.bynavn + '\'' +
                 '}';
     }
 }

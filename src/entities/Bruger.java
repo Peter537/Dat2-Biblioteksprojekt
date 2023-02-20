@@ -15,7 +15,7 @@ public class Bruger {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -23,7 +23,7 @@ public class Bruger {
     }
 
     public String getNavn() {
-        return navn;
+        return this.navn;
     }
 
     public void setNavn(String navn) {
@@ -31,7 +31,7 @@ public class Bruger {
     }
 
     public String getAdresse() {
-        return adresse;
+        return this.adresse;
     }
 
     public void setAdresse(String adresse) {
@@ -39,7 +39,7 @@ public class Bruger {
     }
 
     public Postnr getPostnr() {
-        return postnr;
+        return this.postnr;
     }
 
     public void setPostnr(Postnr postnr) {
@@ -49,10 +49,10 @@ public class Bruger {
     @Override
     public String toString() {
         return "Bruger{" +
-                "id=" + id +
-                ", navn='" + navn + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", postnr=" + postnr +
+                "id=" + this.id +
+                ", navn='" + this.navn + '\'' +
+                ", adresse='" + this.adresse + '\'' +
+                ", postnr=" + this.postnr +
                 '}';
     }
 }

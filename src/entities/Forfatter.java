@@ -11,7 +11,7 @@ public class Forfatter {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -19,7 +19,7 @@ public class Forfatter {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -29,8 +29,8 @@ public class Forfatter {
     @Override
     public String toString() {
         return "Forfatter{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "id=" + this.id +
+                ", name='" + this.name + '\'' +
                 '}';
     }
 }
