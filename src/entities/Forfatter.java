@@ -25,4 +25,12 @@ public class Forfatter {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Forfatter{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

@@ -35,4 +35,13 @@ public class Udlaan {
     public void setBog(Bog bog) {
         this.bog = bog;
     }
+
+    @Override
+    public String toString() {
+        return "Udlaan{" +
+                "id=" + id +
+                ", bruger=" + bruger +
+                ", bog=" + bog +
+                '}';
+    }
 }
