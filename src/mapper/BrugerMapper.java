@@ -2,6 +2,8 @@ package mapper;
 
 import database.ConnectionConfiguration;
 import entities.Bruger;
+import entities.Postnr;
+import entities.Udlaan;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,4 +33,11 @@ public class BrugerMapper {
         return brugerList;
     }
 
+    public static List<Udlaan> getUdlaanList() {
+        return null;
+    }
+
+    public static List<Postnr> getPostnrList() {
+        return null;
+    }
 }
