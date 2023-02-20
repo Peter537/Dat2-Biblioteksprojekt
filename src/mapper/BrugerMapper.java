@@ -3,7 +3,6 @@ package mapper;
 import database.ConnectionConfiguration;
 import entities.Bruger;
 import entities.Postnr;
-import entities.Udlaan;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +14,7 @@ public class BrugerMapper {
 
     public static List<Bruger> getBrugerList() {
         List<Bruger> brugerList = new ArrayList<>();
+        List<Postnr> postnrList = getPostnrList();
         try {
             Connection connection = ConnectionConfiguration.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM bibliotek.bruger");
@@ -24,7 +24,8 @@ public class BrugerMapper {
                 String navn = result.getString("navn");
                 String adresse = result.getString("adresse");
                 int postnr = result.getInt("postnr");
-                brugerList.add(new Bruger(id, navn, adresse, postnr));
+                Postnr postnrObj = postnrList.stream().filter(p -> p.getPostnr() == postnr).findFirst().orElse(null);
+                brugerList.add(new Bruger(id, navn, adresse, postnrObj));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -34,6 +35,20 @@ public class BrugerMapper {
     }
 
     public static List<Postnr> getPostnrList() {
-        return null;
+        List<Postnr> postnrList = new ArrayList<>();
+        try {
+            Connection connection = ConnectionConfiguration.getConnection();
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM bibliotek.postnr");
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                int postnr = result.getInt("postnr");
+                String bynavn = result.getString("bynavn");
+                postnrList.add(new Postnr(postnr, bynavn));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return postnrList;
     }
 }
