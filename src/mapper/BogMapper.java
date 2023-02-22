@@ -39,4 +39,21 @@ public class BogMapper {
         bogList = tempBogList;
         return bogList;
     }
+
+    protected static Bog opretBog(Bog bog) {
+        try {
+            Connection connection = ConnectionConfiguration.getConnection();
+            String sql = "INSERT INTO bibliotek.bog (titel, idforfatter) VALUES (?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, bog.getTitel());
+            statement.setInt(2, bog.getForfatter().getId());
+            statement.executeUpdate();
+            ResultSet resultSet = statement.getGeneratedKeys();
+            resultSet.next();
+            bog.setId(resultSet.getInt(1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bog;
+    }
 }

@@ -42,4 +42,21 @@ public class UdlaanMapper {
         udlaanList = tempUdlaanList;
         return udlaanList;
     }
+
+    protected static Udlaan opretUdlaan(Udlaan udlaan) {
+        try {
+            Connection connection = ConnectionConfiguration.getConnection();
+            String sql = "INSERT INTO bibliotek.udlaan (idbruger, idbog) VALUES (?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, udlaan.getBruger().getId());
+            statement.setInt(2, udlaan.getBog().getId());
+            statement.executeUpdate();
+            ResultSet resultSet = statement.getGeneratedKeys();
+            resultSet.next();
+            udlaan.setId(resultSet.getInt(1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return udlaan;
+    }
 }

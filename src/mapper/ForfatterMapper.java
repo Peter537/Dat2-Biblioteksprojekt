@@ -35,4 +35,20 @@ public class ForfatterMapper {
         forfatterList = tempForfatterList;
         return forfatterList;
     }
+
+    protected static Forfatter opretForfatter(Forfatter forfatter) {
+        try {
+            Connection connection = ConnectionConfiguration.getConnection();
+            String sql = "INSERT INTO bibliotek.forfatter (navn) VALUES (?)";
+            PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            statement.setString(1, forfatter.getNavn());
+            statement.executeUpdate();
+            ResultSet resultSet = statement.getGeneratedKeys();
+            resultSet.next();
+            forfatter.setId(resultSet.getInt(1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return forfatter;
+    }
 }

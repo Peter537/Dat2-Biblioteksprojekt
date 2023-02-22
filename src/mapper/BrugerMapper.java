@@ -7,6 +7,7 @@ import entities.Postnr;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +40,23 @@ public class BrugerMapper {
 
         brugerList = tempBrugerList;
         return brugerList;
+    }
+
+    protected static Bruger opretBruger(Bruger bruger) {
+        try {
+            Connection connection = ConnectionConfiguration.getConnection();
+            String sql = "INSERT INTO bibliotek.bruger (navn, adresse, postnr) VALUES (?,?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, bruger.getNavn());
+            statement.setString(2, bruger.getAdresse());
+            statement.setInt(3, bruger.getPostnr().getPostnr());
+            statement.executeUpdate();
+            ResultSet resultSet = statement.getGeneratedKeys();
+            resultSet.next();
+            bruger.setId(resultSet.getInt(1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bruger;
     }
 }

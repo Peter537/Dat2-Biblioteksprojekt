@@ -35,4 +35,18 @@ public class PostnrMapper {
         postnrList = tempPostnrList;
         return postnrList;
     }
+
+    protected static Postnr opretPostnr(Postnr postnr) {
+        try {
+            Connection connection = ConnectionConfiguration.getConnection();
+            String sql = "INSERT INTO bibliotek.postnr (postnr, bynavn) VALUES (?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, postnr.getPostnr());
+            statement.setString(2, postnr.getBynavn());
+            statement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return postnr;
+    }
 }
