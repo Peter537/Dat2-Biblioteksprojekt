@@ -13,7 +13,6 @@ import java.util.List;
 public class BogMapper {
 
     private static List<Bog> bogList = new ArrayList<>();
-    private static List<Forfatter> forfatterList = new ArrayList<>();
 
     public static List<Bog> getBogList() {
         if (!bogList.isEmpty()) {
@@ -21,7 +20,7 @@ public class BogMapper {
         }
 
         List<Bog> tempBogList = new ArrayList<>();
-        List<Forfatter> forfatterList = getForfatterList();
+        List<Forfatter> forfatterList = ForfatterMapper.getForfatterList();
         try {
             Connection connection = ConnectionConfiguration.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM bibliotek.bog");
@@ -39,28 +38,5 @@ public class BogMapper {
 
         bogList = tempBogList;
         return bogList;
-    }
-
-    public static List<Forfatter> getForfatterList() {
-        if (!forfatterList.isEmpty()) {
-            return forfatterList;
-        }
-
-        List<Forfatter> tempForfatterList = new ArrayList<>();
-        try {
-            Connection connection = ConnectionConfiguration.getConnection();
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM bibliotek.forfatter");
-            ResultSet result = statement.executeQuery();
-            while (result.next()) {
-                int id = result.getInt("idforfatter");
-                String name = result.getString("navn");
-                tempForfatterList.add(new Forfatter(id, name));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        forfatterList = tempForfatterList;
-        return forfatterList;
     }
 }
