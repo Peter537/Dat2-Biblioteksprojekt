@@ -47,6 +47,7 @@ public class PostnrMapper {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        postnrList.add(postnr);
         return postnr;
     }
 }

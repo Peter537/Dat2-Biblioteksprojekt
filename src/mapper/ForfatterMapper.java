@@ -49,6 +49,7 @@ public class ForfatterMapper {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        forfatterList.add(forfatter);
         return forfatter;
     }
 }

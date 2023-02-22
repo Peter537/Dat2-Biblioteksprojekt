@@ -57,6 +57,7 @@ public class BrugerMapper {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        brugerList.add(bruger);
         return bruger;
     }
 }

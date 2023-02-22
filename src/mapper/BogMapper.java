@@ -54,6 +54,7 @@ public class BogMapper {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        bogList.add(bog);
         return bog;
     }
 }

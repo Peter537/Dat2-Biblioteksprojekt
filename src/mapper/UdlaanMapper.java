@@ -57,6 +57,7 @@ public class UdlaanMapper {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        udlaanList.add(udlaan);
         return udlaan;
     }
 }
