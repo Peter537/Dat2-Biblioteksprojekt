@@ -3,15 +3,15 @@ package entities;
 public class Forfatter {
 
     private int id;
-    private String name;
+    private String navn;
 
-    public Forfatter(int id, String name) {
+    public Forfatter(int id, String navn) {
         this.id = id;
-        this.name = name;
+        this.navn = navn;
     }
 
-    public Forfatter(String name) {
-        this.name = name;
+    public Forfatter(String navn) {
+        this.navn = navn;
     }
 
     public int getId() {
@@ -22,12 +22,12 @@ public class Forfatter {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getNavn() {
+        return this.navn;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNavn(String name) {
+        this.navn = name;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class Forfatter {
     public String toString() {
         return "Forfatter{" +
                 "id=" + this.id +
-                ", name='" + this.name + '\'' +
+                ", navn='" + this.navn + '\'' +
                 '}';
     }
 }
