@@ -13,7 +13,7 @@ public class ForfatterMapper {
 
     private static List<Forfatter> forfatterList = new ArrayList<>();
 
-    public static List<Forfatter> getForfatterList() {
+    protected static List<Forfatter> getForfatterList() {
         if (!forfatterList.isEmpty()) {
             return forfatterList;
         }

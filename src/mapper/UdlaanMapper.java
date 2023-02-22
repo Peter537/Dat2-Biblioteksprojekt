@@ -15,14 +15,14 @@ public class UdlaanMapper {
 
     private static List<Udlaan> udlaanList = new ArrayList<>();
 
-    public static List<Udlaan> getUdlaanList() {
+    protected static List<Udlaan> getUdlaanList() {
         if (!udlaanList.isEmpty()) {
             return udlaanList;
         }
 
         List<Udlaan> tempUdlaanList = new ArrayList<>();
-        List<Bruger> brugerList = BrugerMapper.getBrugerList();
-        List<Bog> bogList = BogMapper.getBogList();
+        List<Bruger> brugerList = Facade.getBrugerList();
+        List<Bog> bogList = Facade.getBogList();
         try {
             Connection connection = ConnectionConfiguration.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM bibliotek.udlaan");

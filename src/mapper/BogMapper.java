@@ -14,13 +14,13 @@ public class BogMapper {
 
     private static List<Bog> bogList = new ArrayList<>();
 
-    public static List<Bog> getBogList() {
+    protected static List<Bog> getBogList() {
         if (!bogList.isEmpty()) {
             return bogList;
         }
 
         List<Bog> tempBogList = new ArrayList<>();
-        List<Forfatter> forfatterList = ForfatterMapper.getForfatterList();
+        List<Forfatter> forfatterList = Facade.getForfatterList();
         try {
             Connection connection = ConnectionConfiguration.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM bibliotek.bog");

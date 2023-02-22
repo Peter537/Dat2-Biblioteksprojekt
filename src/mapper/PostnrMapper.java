@@ -13,7 +13,7 @@ public class PostnrMapper {
 
     private static List<Postnr> postnrList = new ArrayList<>();
 
-    public static List<Postnr> getPostnrList() {
+    protected static List<Postnr> getPostnrList() {
         if (!postnrList.isEmpty()) {
             return postnrList;
         }

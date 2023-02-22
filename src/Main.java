@@ -1,9 +1,7 @@
 import entities.Bog;
 import entities.Bruger;
 import entities.Udlaan;
-import mapper.BogMapper;
-import mapper.BrugerMapper;
-import mapper.UdlaanMapper;
+import mapper.Facade;
 
 import java.util.List;
 
@@ -14,7 +12,7 @@ public class Main {
         System.out.println(" **********************************");
         System.out.println("  Brugerliste");
         System.out.println();
-        List<Bruger> brugerList = BrugerMapper.getBrugerList();
+        List<Bruger> brugerList = Facade.getBrugerList();
         for (Bruger bruger : brugerList) {
             System.out.println(bruger);
         }
@@ -23,7 +21,7 @@ public class Main {
         System.out.println(" **********************************");
         System.out.println("  Bogliste");
         System.out.println();
-        List<Bog> bogList = BogMapper.getBogList();
+        List<Bog> bogList = Facade.getBogList();
         for (Bog bog : bogList) {
             System.out.println(bog);
         }
@@ -32,7 +30,7 @@ public class Main {
         System.out.println(" **********************************");
         System.out.println("  Udlånliste");
         System.out.println();
-        List<Udlaan> udlaanList = UdlaanMapper.getUdlaanList();
+        List<Udlaan> udlaanList = Facade.getUdlaanList();
         for (Udlaan udlaan : udlaanList) {
             System.out.println(udlaan);
         }

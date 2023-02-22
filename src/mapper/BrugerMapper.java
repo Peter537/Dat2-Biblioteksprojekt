@@ -14,13 +14,13 @@ public class BrugerMapper {
 
     private static List<Bruger> brugerList = new ArrayList<>();
 
-    public static List<Bruger> getBrugerList() {
+    protected static List<Bruger> getBrugerList() {
         if (!brugerList.isEmpty()) {
             return brugerList;
         }
 
         List<Bruger> tempBrugerList = new ArrayList<>();
-        List<Postnr> postnrList = PostnrMapper.getPostnrList();
+        List<Postnr> postnrList = Facade.getPostnrList();
         try {
             Connection connection = ConnectionConfiguration.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM bibliotek.bruger");
