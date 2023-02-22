@@ -1,7 +1,7 @@
 import entities.Bog;
 import entities.Bruger;
 import entities.Udlaan;
-import mapper.Facade;
+import mappers.Facade;
 
 import java.util.List;
 

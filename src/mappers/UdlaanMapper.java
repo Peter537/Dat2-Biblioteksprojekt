@@ -1,4 +1,4 @@
-package mapper;
+package mappers;
 
 import database.ConnectionConfiguration;
 import entities.Bog;
