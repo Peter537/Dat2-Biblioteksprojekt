@@ -10,6 +10,10 @@ public class Forfatter {
         this.name = name;
     }
 
+    public Forfatter(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return this.id;
     }

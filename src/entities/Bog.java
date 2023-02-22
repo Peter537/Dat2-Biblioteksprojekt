@@ -12,6 +12,11 @@ public class Bog {
         this.forfatter = forfatter;
     }
 
+    public Bog(String titel, Forfatter forfatter) {
+        this.titel = titel;
+        this.forfatter = forfatter;
+    }
+
     public int getId() {
         return this.id;
     }

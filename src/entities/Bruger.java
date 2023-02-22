@@ -14,6 +14,12 @@ public class Bruger {
         this.postnr = postnr;
     }
 
+    public Bruger(String navn, String adresse, Postnr postnr) {
+        this.navn = navn;
+        this.adresse = adresse;
+        this.postnr = postnr;
+    }
+
     public int getId() {
         return this.id;
     }

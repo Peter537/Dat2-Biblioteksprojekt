@@ -12,6 +12,11 @@ public class Udlaan {
         this.bog = bog;
     }
 
+    public Udlaan(Bruger bruger, Bog bog) {
+        this.bruger = bruger;
+        this.bog = bog;
+    }
+
     public int getId() {
         return this.id;
     }
